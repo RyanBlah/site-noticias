@@ -1,0 +1,30 @@
+:root{
+    --cor-primeira: #09122C;
+    --cor-segunda: #872341;
+    --cor-terceira: #BE3144;
+    --cor-quarta: #E17564;
+    --post-hover: #8a2634;
+}
+body{
+    background-color: var(--cor-segunda);
+}
+section{
+    justify-self:center;
+    background-color: var(--cor-terceira);
+    padding: 10px 40px 20px 40px;
+    border-radius: 10px;
+    color: white;
+
+}
+.noticias{
+    padding-bottom: 1000px;
+    width: 100%;
+    background-color:var(--cor-quarta);
+    color: white;
+}
+.titulo{
+    width:100%;
+    color: white;
+    font-size: 30px;
+    background-color: var(--cor-quarta);
+}
