@@ -11,18 +11,47 @@
         <form action="criarpost.php" method="post">
             <div>
                 <h2>Titulo</h2>
-            <textarea class="titulo" name="titulo" type="text"></textarea>
+            <textarea id="titulo" class="titulo" name="titulo" type="text"></textarea>
             </div>
             <div>
                 <h2>colocar imagem</h2>
-                <input name="imagem" type="file">
+                <input id="imagem" name="imagem" type="url">
             </div>
             <div>
                 <h2>texto</h2>
-            <textarea name="texto" class="noticias" rows="85" cols="40" type="text"></textarea>
+            <textarea id="noticia" name="texto" class="noticias" rows="20" cols="40" type="text"></textarea>
             </div>
-            <input type="submit" value="enviar">
+            <input class="botao" type="submit" value="enviar">
         </form>
     </section>
+    <section class="previzualizar">
+        <h2 id="pre-titulo"></h2>
+        <img id="pre-imagem" src="" alt="">
+        <p id="pre-noticia"></p>
+    </section>
+    <script>
+    // Seleciona os elementos
+    const titulo = document.getElementById('titulo');
+    const pretitulo = document.getElementById('pre-titulo');
+    const imagem = document.getElementById('imagem');
+    const preimagem = document.getElementById('pre-imagem');
+    const noticia = document.getElementById('noticia');
+    const prenoticia = document.getElementById('pre-noticia');
+    const botao = document.getElementById('botao');
+
+    titulo.addEventListener('input', () => {
+  pretitulo.textContent = titulo.value;
+});
+
+// Atualiza a imagem automaticamente
+imagem.addEventListener('input', () => {
+  preimagem.src = imagem.value;
+});
+
+// Atualiza o texto automaticamente com parágrafos
+noticia.addEventListener('input', () => {
+  prenoticia.innerHTML = noticia.value.replace(/\n/g, "<br>");
+});
+    </script>
 </body>
 </html>

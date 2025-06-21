@@ -1,5 +1,5 @@
 
-/*importacoes*/
+/*importações*/
 
 @import url('https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&family=Share+Tech+Mono&family=WDXL+Lubrifont+SC&display=swap');
   *{
@@ -13,7 +13,7 @@
     
 }
 
-/*variaveis*/
+/*váriaveis*/
 
   :root{
     --cor-primeira: #09122C;
@@ -195,25 +195,19 @@ h5{
 
 /*texto-seção*/
 h2{
+    padding-left: 10px;
     background-color: #BE3144;
     width:100%;
     box-shadow: 0 4px 8px #000000;
 }
 /*itens do carrosel*/
 
-.item1 { background-image: url(https://images.unsplash.com/photo-1578985545062-69928b1d9587);
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
-.item2 { background-image: url(https://th.bing.com/th/id/OIP.n2ge0rlMRKrVe5B2cSlDYAHaEo?w=253&h=180&c=7&r=0&o=7&pid=1.7&rm=3);
-    background-repeat: no-repeat;
-    background-size: 100%; }
-.item3 { background-image: url(https://images.unsplash.com/photo-1592194996308-7b43878e84a6);
+.item { 
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
-/*Botoes do carrosel*/
+/*Botões do carrosel*/
 
 .botoes{
     display: flex;
@@ -289,6 +283,10 @@ color: white;
     top:300px;
     font-size: 20px;
 
+}
+    h2{
+        width:65%;
+        border-bottom-right-radius: 30px;
 }
 
 }

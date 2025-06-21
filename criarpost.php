@@ -14,6 +14,32 @@ file_put_contents($nomeArquivo, $html);
 // Escapa o conteúdo do texto
 $textoSeguro = nl2br(htmlspecialchars($texto));
 
+// ETAPA 2 - Adiciona novo slide no blog.html
+
+// Define o trecho do novo item do carrossel
+$tituloFormatado = htmlspecialchars($titulo); // Para evitar quebras
+$novoSlide = "
+  <a style=\"text-decoration: none;\" href=\"$nomeArquivo\"><div class=\"carrossel-item item\"style=\"background-image: url($imagem);\"><div class=\"efeito\"><div class=\"texto\"><h4>$tituloFormatado</h4><h5>autor: Ryan</h5></div></div></div></a>";
+
+// Caminho do blog.html
+$blogPath = "blog.html";
+
+// Lê o conteúdo atual do blog
+$blogHtml = file_get_contents($blogPath);
+
+
+
+// Verifica se encontrou
+$marcador = '<!-- NOVOS SLIDES AQUI -->';
+if (strpos($blogHtml, $marcador) !== false) {
+    // Insere o novo slide logo após o marcador
+    $blogAtualizado = str_replace($marcador, $novoSlide . "\n  " . $marcador, $blogHtml);
+    file_put_contents($blogPath, $blogAtualizado);
+} else {
+    echo "<p>Não foi possível encontrar o local para inserir o slide.</p>";
+}
+
+
 // HTML com HEREDOC
 $html = <<<HTML
 <!DOCTYPE html>
@@ -200,6 +226,30 @@ $html = <<<HTML
     </div>
   </section>
 </body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuDropdown = document.getElementById("menu-dropdown");
+    const home = document.getElementById("home");
+
+    home.addEventListener("click", function(){
+     window.location.href='http://127.0.0.1:3000/blog.html';
+    }
+);
+
+    menuToggle.addEventListener("click", function () {
+        menuDropdown.style.display =
+            menuDropdown.style.display === "flex" ? "none" : "flex";
+    });
+
+    // Opcional: clique fora do menu fecha ele
+    document.addEventListener("click", function (e) {
+        if (!menuToggle.contains(e.target) && !menuDropdown.contains(e.target)) {
+            menuDropdown.style.display = "none";
+        }
+    });
+});
+</script>
 </html>
 HTML;
 
@@ -209,4 +259,5 @@ if (file_put_contents($nomeArquivo, $html)) {
 } else {
     echo "<p>Erro ao salvar a notícia. Verifique permissões da pasta.</p>";
 }
+
 ?>
