@@ -1,5 +1,5 @@
 
-/*importações*/
+/*importacoes*/
 
 @import url('https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&family=Share+Tech+Mono&family=WDXL+Lubrifont+SC&display=swap');
   *{
@@ -13,7 +13,7 @@
     
 }
 
-/*váriaveis*/
+/*variaveis*/
 
   :root{
     --cor-primeira: #09122C;
@@ -213,7 +213,7 @@ h2{
     background-size: 100%;
 }
 
-/*Botões do carrosel*/
+/*Botoes do carrosel*/
 
 .botoes{
     display: flex;
