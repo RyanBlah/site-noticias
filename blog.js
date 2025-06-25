@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const home = document.getElementById("home");
 
   home.addEventListener("click", function () {
-    window.location.href = 'https://ryanblah.github.io/site-noticias/blog.html';
+    window.location.href = 'blog.html';
   });
 
   menuToggle.addEventListener("click", function () {
